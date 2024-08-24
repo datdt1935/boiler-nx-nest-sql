@@ -34,7 +34,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/boiler-nestjs-sql-e2e/**/*"]
+      "exclude": [ "apps/api-e2e/**/*"]
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "name": "boiler-nestjs-sql",
+  "name": "api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/boiler-nestjs-sql/src",
+  "sourceRoot": "apps/api/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -10,15 +10,15 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "boiler-nestjs-sql:build",
+        "buildTarget": "api:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "boiler-nestjs-sql:build:development"
+          "buildTarget": "api:build:development"
         },
         "production": {
-          "buildTarget": "boiler-nestjs-sql:build:production"
+          "buildTarget": "api:build:production"
         }
       }
     }

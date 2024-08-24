@@ -1,0 +1,19 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model LocationItem {
+    id             Int            @id @default(autoincrement())
+    building       String
+    locationName   String
+    locationNumber String
+    area           Float
+    parentId       Int? // For hierarchical relationships
+    parent         LocationItem?  @relation("LocationItemTree", fields: [parentId], references: [id])
+    children       LocationItem[] @relation("LocationItemTree")
+}

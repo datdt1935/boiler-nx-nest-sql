@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { LocationService } from './location.service';
 import { Prisma } from '@prisma/client';
@@ -24,6 +26,7 @@ export class LocationController {
   })
   @ApiResponse({ status: 400, description: 'Invalid input data.' })
   @Post()
+  @UsePipes(new ValidationPipe({ transform: true }))
   create(@Body() createLocationDto: CreateLocationDto) {
     return this.locationService.create(createLocationDto);
   }
@@ -33,6 +36,7 @@ export class LocationController {
     status: 200,
     description: 'Successfully retrieved locations.',
   })
+  @UsePipes(new ValidationPipe({ transform: true }))
   @Get()
   findAll() {
     return this.locationService.findAll();
@@ -44,6 +48,7 @@ export class LocationController {
     description: 'Successfully retrieved the location.',
   })
   @ApiResponse({ status: 404, description: 'Location not found.' })
+  @UsePipes(new ValidationPipe({ transform: true }))
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.locationService.findOne(+id);
@@ -55,6 +60,7 @@ export class LocationController {
     description: 'Successfully updated the location.',
   })
   @ApiResponse({ status: 404, description: 'Location not found.' })
+  @UsePipes(new ValidationPipe({ transform: true }))
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -69,6 +75,7 @@ export class LocationController {
     description: 'Successfully deleted the location.',
   })
   @ApiResponse({ status: 404, description: 'Location not found.' })
+  @UsePipes(new ValidationPipe({ transform: true }))
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.locationService.remove(+id);

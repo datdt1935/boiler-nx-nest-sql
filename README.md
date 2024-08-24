@@ -1,6 +1,6 @@
 # Instructions
 
-1. **Create an environment file** that includes the application port and your database connection string, for example:
+1. **Create an environment file** that includes the application port and your database connection string at root or apps backend with end .env, for example:
 
    ```env
    PORT=2999
